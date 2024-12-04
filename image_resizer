@@ -1,0 +1,13 @@
+# image_resizer.py
+
+from PIL import Image
+
+def resize_image(input_path, output_path, width):
+    img = Image.open(input_path)
+    aspect_ratio = img.height / img.width
+    new_height = int(width * aspect_ratio)
+    resized_img = img.resize((width, new_height))
+    resized_img.save(output_path)
+
+# Sample usage
+resize_image("input.jpg", "output.jpg", 800)
